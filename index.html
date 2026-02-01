@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Person</title>
+    <style>
+        :root {
+            --pink-light: #ffebee;
+            --pink-accent: #f06292;
+            --white-trans: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--pink-light);
+            /* Soft kiss-pattern background vibe */
+            background-image: url('https://www.transparenttextures.com/patterns/skulls.png'), 
+                              linear-gradient(to right, #ffdde1, #ee9ca7);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Scrollable Top Nav for 15 pages */
+        nav {
+            background: var(--white-trans);
+            padding: 15px;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            border-bottom: 2px solid var(--pink-accent);
+            z-index: 1000;
+            gap: 20px;
+        }
+
+        nav span {
+            color: var(--pink-accent);
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Page Transitions */
+        .page {
+            display: none;
+            padding: 20px;
+            min-height: 90vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .active { display: flex; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .card {
+            background: var(--white-trans);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid white;
+        }
+
+        .gif-img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .collage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .collage-grid img {
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid white;
+        }
+
+        .gift-btn {
+            font-size: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .gift-btn:hover { transform: bounce; scale: 1.2; }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <script>
+            for(let i=1; i<=15; i++) {
+                document.write(`<span onclick="showPage(${i})">Page ${i}</span>`);
+            }
+        </script>
+    </nav>
+
+    <div id="page1" class="page active">
+        <div class="card">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZ3bmZ3bmZ3bmZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L40asvNXSd33939Rhi/giphy.gif" class="gif-img">
+            <h1>Hi Cutie!</h1>
+            <p>I made something special just for you. Click the gift below!</p>
+            <div class="gift-btn" onclick="showPage(2)">🎁</div>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <div class="card">
+            <h2>YAYAYAYAY!</h2>
+            <p>Pick a box, any box...</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <span class="gift-btn" onclick="showPage(3)">🎁</span>
+                <span class="gift-btn" onclick="showPage(4)">🎁</span>
+                <span class="gift-btn" onclick="showPage(5)">🎁</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="page3" class="page">
+        <div class="card" style="text-align: left;">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmc0YmY0YmY0YmY0YmY0YmY0JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKoWXm3okO1kgHC/giphy.gif" class="gif-img" style="display:block; margin: auto;">
+            <h2 style="border-bottom: 2px solid black;">soulmate</h2>
+            <p><i>noun</i></p>
+            <p>Our missing piece; a connection of minds and an unconditional, effortless, never-ending love.</p>
+        </div>
+    </div>
+
+    <div id="page4" class="page">
+        <div class="card">
+            <h2>Our Best Moments</h2>
+            <div class="collage-grid">
+                <img src="https://via.placeholder.com/150" alt="Us 1">
+                <img src="https://via.placeholder.com/150" alt="Us 2">
+                <img src="https://via.placeholder.com/150" alt="Us 3">
+                <img src="https://via.placeholder.com/150" alt="Us 4">
+            </div>
+        </div>
+    </div>
+
+    <div id="page15" class="page">
+        <div class="card" style="border: 5px double var(--pink-accent);">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ3bmZ3bmZ3bmZ3bmZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/K96dfX7l63557N0V8p/giphy.gif" class="gif-img">
+            <h3>CERTIFICATE OF LOVE</h3>
+            <p>Awarded to the world's best girlfriend.</p>
+            <p><strong>I Love You Forever</strong></p>
+        </div>
+    </div>
+
+    <div id="page5" class="page"><div class="card"><h1>Page 5</h1><p>Insert more cute stuff here!</p></div></div>
+    <script>
+        function showPage(pageNum) {
+            // Hide all
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Show target
+            const target = document.getElementById('page' + pageNum);
+            if(target) target.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
