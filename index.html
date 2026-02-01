@@ -5,174 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Favorite Person</title>
     <style>
-        :root {
-            --pink-light: #ffebee;
-            --pink-accent: #f06292;
-            --white-trans: rgba(255, 255, 255, 0.8);
+        :root { --pink: #fce4ec; --hot-pink: #f06292; }
+        body { 
+            margin: 0; background-color: var(--pink); color: #333; font-family: sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/pink-dust.png');
         }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: var(--pink-light);
-            /* Soft kiss-pattern background vibe */
-            background-image: url('https://www.transparenttextures.com/patterns/skulls.png'), 
-                              linear-gradient(to right, #ffdde1, #ee9ca7);
-            color: #333;
-            overflow-x: hidden;
+        nav { 
+            background: rgba(255,255,255,0.7); padding: 10px; display: flex; 
+            overflow-x: auto; position: sticky; top: 0; z-index: 10; gap: 15px;
         }
-
-        /* Scrollable Top Nav for 15 pages */
-        nav {
-            background: var(--white-trans);
-            padding: 15px;
-            display: flex;
-            overflow-x: auto;
-            white-space: nowrap;
-            position: sticky;
-            top: 0;
-            border-bottom: 2px solid var(--pink-accent);
-            z-index: 1000;
-            gap: 20px;
-        }
-
-        nav span {
-            color: var(--pink-accent);
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-
-        /* Page Transitions */
-        .page {
-            display: none;
-            padding: 20px;
-            min-height: 90vh;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.8s ease;
-        }
-
-        .active { display: flex; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .card {
-            background: var(--white-trans);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            border: 2px solid white;
-        }
-
-        .gif-img {
-            width: 150px;
-            margin-bottom: 20px;
-        }
-
-        .collage-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .collage-grid img {
-            width: 100%;
-            border-radius: 10px;
-            border: 3px solid white;
-        }
-
-        .gift-btn {
-            font-size: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .gift-btn:hover { transform: bounce; scale: 1.2; }
+        nav span { color: var(--hot-pink); font-weight: bold; cursor: pointer; white-space: nowrap; }
+        .page { display: none; padding: 20px; text-align: center; min-height: 80vh; animation: fadeIn 0.5s; }
+        .active { display: block; }
+        @keyframes fadeIn { from {opacity:0} to {opacity:1} }
+        .card { background: white; padding: 20px; border-radius: 15px; display: inline-block; max-width: 90%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .gift { font-size: 50px; cursor: pointer; }
+        .collage img { width: 100%; border-radius: 10px; margin-top: 10px; border: 5px solid #fff; }
+        .cert { border: 10px double var(--hot-pink); padding: 20px; background: #fff; }
     </style>
 </head>
 <body>
 
-    <nav id="navbar">
-        <script>
-            for(let i=1; i<=15; i++) {
-                document.write(`<span onclick="showPage(${i})">Page ${i}</span>`);
-            }
-        </script>
-    </nav>
+<nav id="navbar"></nav>
 
-    <div id="page1" class="page active">
-        <div class="card">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZ3bmZ3bmZ3bmZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L40asvNXSd33939Rhi/giphy.gif" class="gif-img">
-            <h1>Hi Cutie!</h1>
-            <p>I made something special just for you. Click the gift below!</p>
-            <div class="gift-btn" onclick="showPage(2)">🎁</div>
-        </div>
+<div id="page1" class="page active">
+    <h1>YAYAYAYAYAY MY KUCHU PUCHU</h1>
+    <h2>HERE IS YOUR GIFTTTTTTTTTTT</h2>
+    <div class="gift" onclick="showPage(2)">🎁 🎁 🎁</div>
+</div>
+
+<div id="page2" class="page">
+    <div class="card">
+        <h2 style="text-align:left; border-bottom: 2px solid #000;">home</h2>
+        <p style="text-align:left;"><i>noun</i></p>
+        <p style="text-align:left;">A place where you feel loved, safe, and happy. (A.K.A. You).</p>
+        <div class="collage"><img src="YOUR_IMAGE_URL_HERE"></div>
     </div>
+</div>
 
-    <div id="page2" class="page">
-        <div class="card">
-            <h2>YAYAYAYAY!</h2>
-            <p>Pick a box, any box...</p>
-            <div style="display: flex; gap: 10px; justify-content: center;">
-                <span class="gift-btn" onclick="showPage(3)">🎁</span>
-                <span class="gift-btn" onclick="showPage(4)">🎁</span>
-                <span class="gift-btn" onclick="showPage(5)">🎁</span>
-            </div>
-        </div>
+<div id="page3" class="page">
+    <div class="card">
+        <h2 style="text-align:left; border-bottom: 2px solid #000;">soulmate</h2>
+        <p style="text-align:left;"><i>noun</i></p>
+        <p style="text-align:left;">Our missing piece; a connection of minds and an unconditional, effortless, never-ending love.</p>
+        <div class="collage"><img src="YOUR_IMAGE_URL_HERE"></div>
     </div>
+</div>
 
-    <div id="page3" class="page">
-        <div class="card" style="text-align: left;">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmc0YmY0YmY0YmY0YmY0YmY0JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKoWXm3okO1kgHC/giphy.gif" class="gif-img" style="display:block; margin: auto;">
-            <h2 style="border-bottom: 2px solid black;">soulmate</h2>
-            <p><i>noun</i></p>
-            <p>Our missing piece; a connection of minds and an unconditional, effortless, never-ending love.</p>
-        </div>
+<div id="page4" class="page"><div class="card"><h1>Our Memories</h1><div class="collage"><img src=https://i.postimg.cc/vZCTNtT0/vaishu1.jpg></div></div></div>
+<div id="page5" class="page"><div class="card"><h1>You're My Favorite</h1><div class="collage"><img src=https://i.postimg.cc/CLQxRsGy/Whats-App-Image-2026-02-01-at-3-50-53-PM.jpg></div></div></div>
+<div id="page6" class="page"><div class="card"><h1>Every Moment Counts</h1><div class="collage"><img src=https://i.postimg.cc/T3c0fhMv/vaishu3.jpg></div></div></div>
+<div id="page7" class="page"><div class="card"><h1>Sweetest Smile</h1><div class="collage"><img src=https://i.postimg.cc/j5BQZ7Nn/vaishu4.jpg></div></div></div>
+<div id="page8" class="page"><div class="card"><h1>My Whole Heart</h1><div class="collage"><img src=https://i.postimg.cc/sfSp315C/idk.jpg></div></div></div>
+<div id="page9" class="page"><div class="card"><h1>Better Together</h1><div class="collage"><img src="YOUR_IMAGE_URL_HERE"></div></div></div>
+<div id="page10" class="page"><div class="card"><h1>Forever To Go</h1><div class="collage"><img src="YOUR_IMAGE_URL_HERE"></div></div></div>
+<div id="page11" class="page"><div class="card"><h1>My Safe Place</h1><div class="collage"><img src="YOUR_IMAGE_URL_HERE"></div></div></div>
+<div id="page12" class="page"><div class="card"><h1>Always & Forever</h1><div class="collage"><img src="YOUR_IMAGE_URL_HERE"></div></div></div>
+<div id="page13" class="page"><div class="card"><h1>Thinking Of You</h1><div class="collage"><img src="YOUR_IMAGE_URL_HERE"></div></div></div>
+<div id="page14" class="page"><div class="card"><h1>The Best View</h1><div class="collage"><img src="YOUR_IMAGE_URL_HERE"></div></div></div>
+
+<div id="page15" class="page">
+    <div class="cert">
+        <h3>CERTIFICATE OF MY LOVE</h3>
+        <p>PRESENTED TO</p>
+        <h2 style="color: var(--hot-pink);">[HER NAME]</h2>
+        <p>For being the best girlfriend, my safe place, and my biggest smile.</p>
+        <p><strong>AWARDED WITH ALL MY LOYALTY</strong></p>
     </div>
+</div>
 
-    <div id="page4" class="page">
-        <div class="card">
-            <h2>Our Best Moments</h2>
-            <div class="collage-grid">
-                <img src="https://via.placeholder.com/150" alt="Us 1">
-                <img src="https://via.placeholder.com/150" alt="Us 2">
-                <img src="https://via.placeholder.com/150" alt="Us 3">
-                <img src="https://via.placeholder.com/150" alt="Us 4">
-            </div>
-        </div>
-    </div>
+<script>
+    // Build the Nav bar
+    const nav = document.getElementById('navbar');
+    for(let i=1; i<=15; i++) {
+        let span = document.createElement('span');
+        span.innerText = 'Page ' + i;
+        span.onclick = () => showPage(i);
+        nav.appendChild(span);
+    }
 
-    <div id="page15" class="page">
-        <div class="card" style="border: 5px double var(--pink-accent);">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ3bmZ3bmZ3bmZ3bmZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/K96dfX7l63557N0V8p/giphy.gif" class="gif-img">
-            <h3>CERTIFICATE OF LOVE</h3>
-            <p>Awarded to the world's best girlfriend.</p>
-            <p><strong>I Love You Forever</strong></p>
-        </div>
-    </div>
-
-    <div id="page5" class="page"><div class="card"><h1>Page 5</h1><p>Insert more cute stuff here!</p></div></div>
-    <script>
-        function showPage(pageNum) {
-            // Hide all
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // Show target
-            const target = document.getElementById('page' + pageNum);
-            if(target) target.classList.add('active');
-            window.scrollTo(0, 0);
-        }
-    </script>
+    function showPage(num) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('page' + num).classList.add('active');
+        window.scrollTo(0,0);
+    }
+</script>
 </body>
 </html>
